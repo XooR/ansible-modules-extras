@@ -339,7 +339,6 @@ def vm_start(conn, vmname, hostname=None, ip=None, netmask=None, gateway=None,
         ipinfo = params.IP(address=ip, netmask=netmask, gateway=gateway)
         nic = params.GuestNicConfiguration(name='eth0', boot_protocol='STATIC', ip=ipinfo, on_boot=True)
         nics = params.Nics()
-    nics = params.GuestNicsConfiguration(nic_configuration=[nic])
     initialization=params.Initialization(regenerate_ssh_keys=True, host_name=hostname, domain=domain, user_name='root',
                                          root_password=rootpw, nic_configurations=nics, dns_servers=dns,
                                          authorized_ssh_keys=key)
